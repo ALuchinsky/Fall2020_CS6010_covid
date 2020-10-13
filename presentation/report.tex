@@ -8,6 +8,7 @@
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{blindtext}
+\usepackage[hidelinks]{hyperref}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -30,18 +31,29 @@
 
 \blindtext 
 
+\begin{eqnarray}
+  \label{eq:1}
+  e^{i\alpha} = \cos\alpha + i \sin\alpha
+\end{eqnarray}
+
 \blindtext 
 
 \blindtext 
 
 \section{Methodology}
 
-\blindtext 
+\blindtext
+
+As it was shown in the article \cite{IEEEexample:article_typical},  the life is full of pain and sorrow.
+
 \blindenumerate[10]
 
 \section{ Results \& Discussion }
 
+\section{Conclusion}
 
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEexample}
 
 \end{document}
 
