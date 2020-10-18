@@ -1,0 +1,42 @@
+Data as of	
+Date of analysis
+Date & Time
+Start week	
+First week-ending date of data period
+Date & Time
+End Week	
+Last week-ending date of data period
+Date & Time
+HHS Region	
+HHS Region
+Number
+State	
+Jurisdiction of Occurrence
+Plain Text
+Place of Death	
+Place of death
+Plain Text
+Age group	
+Age group
+Plain Text
+COVID-19 Deaths	
+Deaths involving COVID-19 (ICD-code U07.1)
+Number
+Total Deaths	
+Deaths from all causes of death
+Number
+Pneumonia Deaths	
+Pneumonia Deaths (ICD-10 codes J12.0-J18.9)
+Number
+Pneumonia and COVID-19 Deaths	
+Deaths with Pneumonia and COVID-19 (ICD-10 codes J12.0-J18.9 and U07.1)
+Number
+Influenza Deaths	
+Influenza Deaths (ICD-10 codes J09-J11)
+Number
+Pneumonia, Influenza, or COVID-19 Deaths	
+Deaths with Pneumonia, Influenza, or COVID-19 (ICD-10 codes U07.1 or J09-J18.9)
+Number
+Footnote	
+Suppressed counts (1-9)
+Plain Text
