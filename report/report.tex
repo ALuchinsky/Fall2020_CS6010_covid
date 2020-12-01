@@ -1,4 +1,4 @@
-\documentclass[conference]{IEEEtran}
+\documentclass[conference, onecolumn]{IEEEtran}
 \IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
 \usepackage{cite}
@@ -150,6 +150,48 @@ Septicemia                        &   1729 &   1957 &   1995 &   2066 &   1936 \
 \blindenumerate[10]
 
 \section{ Results \& Discussion }
+
+The main goal of our project is to study the time dependence of death cases caused by COVID virus pandemic and compare it with the available data about deaths caused by other reasons (such as heart descases, usual influencia, ect). It could be interesting also to make such an analysis for different States or even counties.
+
+Let us start with the general yearly distributions. Unfortunately we failed to find data on natural causes statistics by county, so only state-wide analysis was performed.. It turns out that for all considered by our group states on yearly scale the COVID virus was not the main cause of death. In the case of the Ohio state, for example, it is in the 6th place, just between Alzheimer decease and strokes. (see figure \ref{fig:yearly_deaths} for more details). Almost the same situation is observed for, other analyzed by our group states. In all cases heart diseases are the most important death causes, while deaths caused by COVID varus are on 4-6 place.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\columnwidth]{figs/yearly_deaths}
+  \caption{Comparison}
+  \label{fig:yearly_deaths}
+\end{figure}
+
+
+This point is rather interesting and seems to to be very  important. It is clear that be cans of various precaution measures (such as self isolation, quarantine, lockdown of different industries) the life of the whole world changed dramatically in 2020 year because of COVID. a lot of necessary medical procedures were delayed or even canceled, lots of industries were almost bankrupted, etc. Not to mention the most close for us now field, i. e. the education (one can argue about some positive sides of the remote education, but it is definitely different completely from the usual face-to-face process and more difficult for both students and instructors/ professors). Thus , w can say that a lot of money and efforts were lost because of the lockdown during this pandemic and a natural question arises: does it worth it, war is really necessary? As you can see from figure 6, heart diseases are much more dangerous, but we do not stop the life because of them.
+
+
+
+To answer this question of could be interesting to perform a more detailed analysis and study the weekly dependence of the statistics of deaths caused by various deceases. It is clear, that COVID data, collected by our group, gives us a nice opportunity to extract time dependence of death cases with such a granularity (either directly, as for Michigan and Indiana states, or after some obvious transformations, as in the case of raw Ohio data). The same information, actually, in available from COVID-tracker project [a] , but we decided to work with the original data first. In figure \ref{fig:RT_comp_NC} we compare time distributions of the deaths cases extracted from the original data and covid-tracker results. From this figure it is clear that for all states under consideration uncumulative distributions are in good agreement, while in the case of shown in figure \ref{fig:RT_comp_CUM} cumulative results the difference is hardly noticeable.
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.9\textwidth]{figs/raw_tracker_comp_nc}
+  \caption{Comparison}
+  \label{fig:RT_comp_NC}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.9\textwidth]{figs/raw_tracker_comp_cum}
+  \caption{Comparison}
+  \label{fig:RT_comp_CUM}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.9\textwidth]{figs/weekly_deaths}
+  \caption{Comparison}
+  \label{fig:weekly_deaths}
+\end{figure*}
+
+
 
 You can see a typical photo of our hero on figure \ref{fig}.
 
