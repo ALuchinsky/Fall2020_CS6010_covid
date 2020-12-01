@@ -9,6 +9,7 @@
 \usepackage{xcolor}
 \usepackage{blindtext}
 \usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -42,7 +43,108 @@
 
 \section{Methodology}
 
-\blindtext
+\subsection{Ohio}
+\label{Ohio}
+
+Ohio state has a good habbit in publishing clean, tidy and very informative data. The main dataset that we will be working with, is called "COVID Summary Data" and can be found following the link \cite{ODRSsummary}.
+
+	This dataset at the current moment has more
+        than 128,000 rows and describes all the COVID- related cases in Ohio since Jan 2,2020 till the current date (Nov 18 2020). It should be noted that the dataset represents almost raw data and is in the long-table format. In total there are 9 columns in the table, representing the following fields:
+        \begin{itemize}
+        \item County --- County of residence
+        \item Age Range --- Sex
+        \item Onset Date --- Date the illness began. If onset date is unknown, the date associated with the case is used as a substitute for the date of illness onset.
+        \item Date of Death --- Date of death. If date of death is unknown, this variable will be listed as “Unknown”.
+        \item Admission Date --- Date of hospital admission. If the date is unknown, it will be listed as “Unknown”.
+        \item Case count --- Total number of cases that meet the demographic criteria specified in the corresponding row. For example, the number in this cell is the total number of cases in a county, of the given gender, age range, onset date, etc. Each individual is only counted once. This includes both Confirmed or CDC Expanded Case Definition (Probable).
+        \item Deaths Due to Illness Count --- Total number of deaths due to illness that meet the criteria in the given row. Each individual is counted once in this dataset. Note: If this cell is “0” and there is a date listed under “Date of Death” this indicates a death that was not considered to be COVID-19 related.
+        \item Hospitalized Count --- Sum of hospitalizations that meet the criteria in the given row. Each individual is only counted once in this dataset. Data in this cell is cumulative and not the amount of people that are currently hospitalized.
+        \end{itemize}
+Typical extract from the dataset is shown on table \ref{tab:OhioDS}.
+
+
+\begin{table*}
+  \tiny
+  \centering
+  \begin{tabular}{lllllllrrr}
+\toprule
+{} &    County &      Sex & Age Range & Onset Date & Date Of Death & Admission Date &  Case Count &  Death Due to Illness Count &  Hospitalized Count \\
+\midrule
+49384  &  Hamilton &   Female &       80+ & 2020-11-19 &           NaN &            NaN &           1 &                           0 &                   0 \\
+7791   &    Butler &   Female &      0-19 & 2020-11-19 &           NaN &            NaN &           1 &                           0 &                   0 \\
+51824  &  Hamilton &     Male &       80+ & 2020-11-19 &           NaN &            NaN &           2 &                           0 &                   0 \\
+10993  &    Butler &     Male &       80+ & 2020-11-19 &           NaN &            NaN &           1 &                           0 &                   0 \\
+7588   &     Brown &     Male &       80+ & 2020-11-19 &           NaN &            NaN &           1 &                           0 &                   0 \\
+7538   &     Brown &     Male &     60-69 & 2020-11-19 &           NaN &            NaN &           1 &                           0 &                   0 \\
+7368   &     Brown &     Male &     20-29 & 2020-11-19 &           NaN &            NaN &           1 &                           0 &                   0 \\
+7403   &     Brown &     Male &     30-39 & 2020-11-19 &           NaN &            NaN &           1 &                           0 &                   0 \\
+14057  &     Clark &     Male &     70-79 & 2020-11-19 &    10/10/2020 &            NaN &           1 &                           1 &                   0 \\
+121524 &     Wayne &  Unknown &      0-19 & 2020-11-19 &           NaN &            NaN &           1 &                           0 &                   0 \\
+\bottomrule
+\end{tabular}
+\caption{Extract from Ohio dataset}
+\label{tab:OhioDS}
+\end{table*}
+
+The dataset is clean. In table \ref{tab:Ohio:missing} number and percentage of the missing data in each row is shown. As you can see, we have only absent data in "admission Date" and "Date of Deaths" columns (81\% and 95\% respectively). This is not the problem of the dataset and means only that in the majority of the cases the patient was not hospitalized (and the admission date is left blank) and/or is alive (this correspond to undefined "Date of Deaths" field).
+
+\begin{table*}[b]
+  \centering
+  \begin{tabular}{lll}
+    \toprule
+    Field Name & Missing (\%) & Comment\\
+    \midrule\\
+    County & 0 & \\
+    Sex & 0 & \\
+    Age Range & 0 & \\
+               Onset Date & 0 & \\
+               Date Of Death & 95 & People with missing Date of Death are still alive \\
+               Admission Date &  82 & People with missing Admission Date are not hospitalized \\
+               Case Count & 0 & \\
+               Death Due to Illness Count & 0& \\
+               Hospitalized Count & 0 & \\
+    \bottomrule
+  \end{tabular}
+  \caption{Missing data in Ohio dataset}
+  \label{tab:Ohio:missing}
+\end{table*}
+
+
+It was mentioned already, that the dataset is in long-table format, so a lot of information can be extracted from it after some work. For example, it is easy to construct time distributions of the total COVID cases/deaths/hospitalizations, determine the mean time spent in hospital, percentage of people died in hospitals and at home, etc. The other example of the dataset, published by COVID tracker, is available through the link \cite{COVIDTracker}. The data in this dataset is already processed, so only the projections of the original data (like the one doscussed earlier) on different variables are available. This makes it easier to extract some information (like time distributions of the deaths cases), but some other information (the role of age and gender, for example) is lost completely. Later in our report we will compre the results extracted from these two data sets.
+
+The original goal of our project was to study mortality rate due to COVID and compare if with the number of deaths caused by other reasons (natural, cancer, flue, etc). On the Ohio site \cite{NCHSohio} the yearly statistics for last 4 years is presented with classification by different dearth causes. During our work we extracted this information from the site with the help of python Beautiful Soup package \cite{bs4}. In table the \ref{tab:mortalityStats} current information from this site is shown. Later we have found that the same information for all states is available also in nice CSV format from the link \cite{CDCmortality}. 
+
+\begin{table*}
+  \centering
+\begin{tabular}{lrrrrr}
+\toprule
+Year &   2014 &   2015 &   2016 &   2017 &   Mean \\
+Cause                             &        &        &        &        &        \\
+\midrule
+Heart Disease                     &  27000 &  28069 &  27410 &  28008 &  27621 \\
+Cancer                            &  25433 &  25396 &  25509 &  25643 &  25495 \\
+Accidents                         &   6178 &   6756 &   7999 &   8971 &   7476 \\
+Chronic Lower Respiratory Disease &   6765 &   7211 &   7015 &   7312 &   7075 \\
+Stroke                            &   5791 &   5945 &   5987 &   6425 &   6037 \\
+Alzheimer’s disease               &   4083 &   4643 &   5031 &   5117 &   4718 \\
+Drugs                             &   2744 &   3310 &   4329 &   5111 &   3873 \\
+Diabetes                          &   3641 &   3645 &   3568 &   3740 &   3648 \\
+Flu/Pneumonia                     &   2443 &   2445 &   2187 &   2243 &   2329 \\
+Kidney Disease                    &   2002 &   2100 &   2262 &   2237 &   2150 \\
+Septicemia                        &   1729 &   1957 &   1995 &   2066 &   1936 \\
+\bottomrule
+\end{tabular}
+\caption{Mortality from different causes \label{tab:mortalityStats}}
+\end{table*}
+
+\subsection{Michigan}
+
+
+\subsection{Indiana}
+
+
+
+
 
 
 \blindenumerate[10]
@@ -52,7 +154,7 @@
 You can see a typical photo of our hero on figure \ref{fig}.
 
 \begin{figure}[htbp]
-\centerline{\includegraphics{covid19.png}}
+\centerline{\includegraphics[width = 0.9\columnwidth]{covid19.png}}
 \caption{This is it}
 \label{fig}
 \end{figure}
@@ -64,7 +166,7 @@ As it was shown in the article \cite{IEEEexample:article_typical}, the night is 
 
 
 \bibliographystyle{IEEEtran}
-\bibliography{IEEEexample}
+\bibliography{report_litr}
 
 \end{document}
 
