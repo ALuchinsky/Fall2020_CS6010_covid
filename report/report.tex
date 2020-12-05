@@ -47,7 +47,7 @@ Goal: Compared standardized state COVID-19 datesets (including time series, coun
 \subsection{Ohio}
 \label{Ohio}
 
-Ohio state has a good habbit in publishing clean, tidy and very informative data. The main dataset that we will be working with, is called "COVID Summary Data" and can be found following the link \cite{ODRSsummary}.
+Ohio state has a good habbit in publishing clean, tidy and very informative data. The main dataset that we will be working with, is called "COVID Summary Data" and can be found following the link \cite{system_covid-19_nodate}.
 
 	This dataset at the current moment has more
         than 128,000 rows and describes all the COVID- related cases in Ohio since Jan 2,2020 till the current date (Nov 18 2020). It should be noted that the dataset represents almost raw data and is in the long-table format. In total there are 9 columns in the table, representing the following fields:
@@ -111,9 +111,9 @@ The dataset is clean. In table \ref{tab:Ohio:missing} number and percentage of t
 \end{table*}
 
 
-It was mentioned already, that the dataset is in long-table format, so a lot of information can be extracted from it after some work. For example, it is easy to construct time distributions of the total COVID cases/deaths/hospitalizations, determine the mean time spent in hospital, percentage of people died in hospitals and at home, etc. The other example of the dataset, published by COVID tracker, is available through the link \cite{COVIDTracker}. The data in this dataset is already processed, so only the projections of the original data (like the one doscussed earlier) on different variables are available. This makes it easier to extract some information (like time distributions of the deaths cases), but some other information (the role of age and gender, for example) is lost completely. Later in our report we will compre the results extracted from these two data sets.
+It was mentioned already, that the dataset is in long-table format, so a lot of information can be extracted from it after some work. For example, it is easy to construct time distributions of the total COVID cases/deaths/hospitalizations, determine the mean time spent in hospital, percentage of people died in hospitals and at home, etc. The other example of the dataset, published by COVID tracker, is available through the link \cite{covid19tracking_covid_nodate}. The data in this dataset is already processed, so only the projections of the original data (like the one doscussed earlier) on different variables are available. This makes it easier to extract some information (like time distributions of the deaths cases), but some other information (the role of age and gender, for example) is lost completely. Later in our report we will compre the results extracted from these two data sets.
 
-The original goal of our project was to study mortality rate due to COVID and compare if with the number of deaths caused by other reasons (natural, cancer, flue, etc). On the Ohio site \cite{NCHSohio} the yearly statistics for last 4 years is presented with classification by different dearth causes. During our work we extracted this information from the site with the help of python Beautiful Soup package \cite{bs4}. In table the \ref{tab:mortalityStats} current information from this site is shown. Later we have found that the same information for all states is available also in nice CSV format from the link \cite{CDCmortality}. 
+The original goal of our project was to study mortality rate due to COVID and compare if with the number of deaths caused by other reasons (natural, cancer, flue, etc). On the Ohio site \cite{statistics_stats_nodate} the yearly statistics for last 4 years is presented with classification by different dearth causes. During our work we extracted this information from the site with the help of python Beautiful Soup package \cite{team_beautiful_nodate}. In table the \ref{tab:mortalityStats} current information from this site is shown. Later we have found that the same information for all states is available also in nice CSV format from the link \cite{cdc_weekly_nodate}. 
 
 \begin{table*}
   \centering
@@ -199,7 +199,7 @@ It could be interesting to study relative role of the virus decease in compariso
 
 We  can make some assumptions about the reasons of such a difference. As we know, Ohio swas one of the first states that have declared the emergency situation and some of the precaution measures were taken in the stars of the panding. This results in a relatively mild first wave, but the people are too tired from the quarantine, etc, so now we have a serious second mare. In Michigan state the situation is completely different.
 
-There is also the other interesting point in the Ohio and Michigan States data. Starting approximately from week 30 in both cases R00-R99 death cause started to gain mon weights (see zed line). According to  International Classification of Diseases scheme  \cite{ICD-10} these codes correspond to some abnormal symptoms, not els where classified. We do not have enough medical education to make any definite assumptions, but such a behaviour exactly during the second wave of a new and not completely studied descase looks rather strange, we can even say suspicions.
+There is also the other interesting point in the Ohio and Michigan States data. Starting approximately from week 30 in both cases R00-R99 death cause started to gain mon weights (see zed line). According to  International Classification of Diseases scheme  \cite{cdc_international_nodate} these codes correspond to some abnormal symptoms, not els where classified. We do not have enough medical education to make any definite assumptions, but such a behaviour exactly during the second wave of a new and not completely studied descase looks rather strange, we can even say suspicions.
 
 % You can see a typical photo of our hero on figure \ref{fig}.
 
