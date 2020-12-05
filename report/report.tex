@@ -79,6 +79,14 @@ A lot of these happened earlier in the year, however our research looks at COVID
 The methodology is similar for each state, however there were some differences including how the raw data, which in some states was already summarized, is setup.
 Some data was cumulative, while others were daily and sometimes in the case of Ohio by batch (multiple entries per day based on when the data arrived).
 
+We pre-process the data for each state since they are different in their raw formats.
+Once pre-processed they are pulled into the main notebook where every preprocessed state goes through the same analysis by comparing against the COVIDTracking Project by the Atlantic to see if the numbers from the state and the agregated numbers by this third party track match \cite{covid19tracking_covid_nodate}.
+We look at the statistics of death, and see how COVID-19 ranks against the other causes of death by state.
+We also look at the population change by state to see if that has an impact when looking at non-COVID-19 causes of death.
+Testing, negative and positive are compared between the states.
+
+To identify where COVID-19 is prevalent within a state we look at the total case and deaths on a GeoJSON plot using a TopoJSON collection to help maps counties to a map of the state \cite{eldersveld_topojson_nodate}.
+
 \subsection{Ohio}
 \label{Ohio}
 
