@@ -80,6 +80,26 @@ The methodology is similar for each state, however there were some differences i
 Some data was cumulative, while others were daily and sometimes in the case of Ohio by batch (multiple entries per day based on when the data arrived).
 
 We pre-process the data for each state since they are different in their raw formats.
+Two processed datasets are created per state.
+The first processed dataset is on the county level, with the following columns:
+\begin{itemize}
+  \item Date - Date of COVID-19 event
+  \item State - State it happened in
+  \item County - The county within that state
+  \item Cases - Daily cases on the specific date within the county
+  \item Deaths - Daily deaths on the specific date within the county
+\end{itemize}
+
+The first processed dataset is on the state level, with the following columns:
+\begin{itemize}
+  \item Date - Date of COVID-19 event
+  \item State - State it happened in
+  \item Cases - Daily cases on the specific date within the state
+  \item Positive - Daily positive tests on the specific date within the state
+  \item Negative - Daily negative tests on the specific date within the state
+  \item Deaths - Daily deaths on the specific date within the state
+\end{itemize}
+
 Once pre-processed they are pulled into the main notebook where every preprocessed state goes through the same analysis by comparing against the COVIDTracking Project by the Atlantic to see if the numbers from the state and the agregated numbers by this third party track match \cite{covid19tracking_covid_nodate}.
 We look at the statistics of death, and see how COVID-19 ranks against the other causes of death by state.
 We also look at the population change by state to see if that has an impact when looking at non-COVID-19 causes of death.
