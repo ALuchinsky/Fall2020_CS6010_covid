@@ -15,38 +15,50 @@
 \begin{document}
 
 \title{COVID-19}
-\author{Alexey Luchinsky \and Michael Terry  \and Vagish Vela}
+
+\author{\IEEEauthorblockN{ Aleksei Luchinsky }
+\IEEEauthorblockA{\textit{Department of Mathematics and Statistics} \\
+\textit{Bowling Green State University}\\
+Bowling Green, Ohio \\
+aluchi@bgsu.edu}
+\and
+\IEEEauthorblockN{ Michael Terry}
+\IEEEauthorblockA{\textit{Department of Computer Science} \\
+\textit{Bowling Green State University}\\
+Bowling Green, Ohio \\
+mterry@bgsu.edu}
+\and
+\IEEEauthorblockN{ Vagish Vela}
+\IEEEauthorblockA{\textit{Department of Computer Science} \\
+\textit{Bowling Green State University}\\
+Bowling Green, Ohio \\
+vvela@bgsu.edu}
+}
 \maketitle
 
 \begin{abstract}
 Goal: Compared standardized state COVID-19 datesets (including time series, county, deaths, cases, tests) with CDC provided deaths statistics for associated states to determine the increased mortality rates and potentially correlate increases in outside morbidity factors(cancer, heart disease, et cetera) as as result of state mandated lockdowns (resulting in delayed medical procedures, isolation exacerbated mental illness, et cetera).
-  \blindtext
 \end{abstract}
 
 \section{Introduction}
 
-Coronavirus Disease 2019 (COVID-19) was a global pandemic as of March 2020, it was declared one by the World Health Organization \cite{cucinotta_who_2020}.
-COVID-19 is a major issue in 2020 with wide ranging global impact for the economy, mental and physical health.
-Our aim is to see if we can find trends between states for COVID-19 as well as compare it against other causes of death.
+Coronavirus Disease 2019 (COVID-19) is a global pandemic since March 2020, as declared by the World Health Organization \cite{cucinotta_who_2020}.
+COVID-19 is a major issue in 2020 with significant impact to global economies, as well as the mental and physical health of people worldwide.
+Our research seeks to identify trends between US states for COVID-19, and compare it to other causes of death.
 
-Our contribution from this paper is a comparison between states focusing on positive, negative, case counts and death counts. 
+Our contributions are comparisons between states focusing on positive test counts, negative test counts, case counts and death counts. 
 With the ability to replicate on all states of the USA. 
 Additionally, providing a comparison between each states COVID-19 deaths against other causes of death.
 This is also replicable across all states of the USA.
 Replication is key in our analysis, and one merely has to pre-process the data into the relevant format and it will run through the analysis.
 
-In this paper we will focus on a small selection of states including Ohio, Michigan, Indiana and California with the ability to replicate across all states within the USA.
+This paper will focus on a subset of US states: including Ohio, Michigan, Indiana and California with the ability to replicate across all states within the USA.
 We have two research questions, the first focuses on comparisons between the states and the second on the comparisons between causes of death:
-\begin{enumerate}
-  \item \textbf{RQ1: Are there similarities with COVID-19 spread between states?}
-  
-  Are the states in the midwest similar? Also are there differences with states in the south versus the north?
-  We will focus on Indiana, Michigan and Ohio in the midwest for the first comparison. Then look at California against the midwest for the second comparison.
 
-  \item \textbf{RQ2: How does COVID-19 compare to other causes of death?}
-  
-  Leveraging the CDC data on excess deaths we will compare COVID-19 against other causes \cite{cdc_weekly_nodate}.
-\end{enumerate}
+\textbf{RQ1: Are there similarities with COVID-19 spread between states?} Are the states in the Midwest similar? Also are there differences with states in the south versus the north? We will focus on Indiana, Michigan and Ohio in the Midwest for the first comparison. Then look at California against the Midwest for the second comparison.
+
+\textbf{RQ2: How does COVID-19 compare to other causes of death?} Leveraging the CDC data on excess deaths we will compare COVID-19 against other causes \cite{cdc_weekly_nodate}.
+
 
 The paper as organized as follows, section II covers the background which focuses on the datasets we use as well as previous work done with those datasets.
 Section III focuses on the methodology of how we cleaned, processed and analyzed the data.
@@ -72,14 +84,14 @@ There has been comparative studies into the geographical differences between the
 Along those lines there have been estimations of excess deaths from March to May \cite{weinberger_estimation_2020}, and March to July \cite{woolf_excess_2020-1}.
 
 There has been a lot of research into COVID-19, comparisons between states, predicting spread and looking at excess deaths. 
-A lot of these happened earlier in the year, however our research looks at COVID-19 data from March through to December which gives us a bigger dataset to use.
+Much of this research occurred earlier in the year. By comparison, our research examines COVID-19 data from March to December giving us larger datasets to draw on and analyze.
 
 \section{Methodology}
 
-The methodology is similar for each state, however there were some differences including how the raw data, which in some states was already summarized, is setup.
-Some data was cumulative, while others were daily and sometimes in the case of Ohio by batch (multiple entries per day based on when the data arrived).
+The methodology is similar for each state. Differences in individual state-supplied raw data required the use of different techniques in order to transform the data into a standardized format.
+For example, some state data was cumulative, while others were daily and sometimes in the case of Ohio by batch (multiple entries per day based on when the data arrived).
 
-We pre-process the data for each state since they are different in their raw formats.
+We preprocess the data for each state since they are different in their raw formats.
 Two processed datasets are created per state.
 The first processed dataset is on the county level, with the following columns:
 \begin{itemize}
@@ -100,20 +112,20 @@ The first processed dataset is on the state level, with the following columns:
   \item Deaths - Daily deaths on the specific date within the state
 \end{itemize}
 
-Once pre-processed they are pulled into the main notebook where every preprocessed state goes through the same analysis by comparing against the COVIDTracking Project by the Atlantic to see if the numbers from the state and the agregated numbers by this third party track match \cite{covid19tracking_covid_nodate}.
-We look at the statistics of death, and see how COVID-19 ranks against the other causes of death by state.
-We also look at the population change by state to see if that has an impact when looking at non-COVID-19 causes of death.
-Testing, negative and positive are compared between the states.
+Once preprocessed, they are pulled into the main notebook where every preprocessed state goes through the same analysis by comparing against the COVIDTracking Project by the Atlantic to compare the numbers from the state and the aggregated numbers by this third party for similarity \cite{covid19tracking_covid_nodate}.
+We look at the statistics of death, and rank COVID-19 fatalities against the other causes of death by state.
+We also examine the population shift by state to see if there is any impact when looking at non-COVID-19 causes of death.
+Testing, negative test results and positive test results are compared between the states.
 
-To identify where COVID-19 is prevalent within a state we look at the total case and deaths on a GeoJSON plot using a TopoJSON collection to help maps counties to a map of the state \cite{eldersveld_topojson_nodate}.
+For visual identification of COVID-19 prevalence within a state geographically, we plot total cases and deaths using GeoJSON by leveraging a TopoJSON collection to help maps counties to a map of the state \cite{eldersveld_topojson_nodate}.
 
 \subsection{Ohio}
 \label{Ohio}
 
-Ohio state has a good habbit in publishing clean, tidy and very informative data. The main dataset that we will be working with, is called "COVID Summary Data" and can be found following the link \cite{system_covid-19_nodate}.
+Ohio state has a good habit in publishing clean, tidy and very informative data. The main dataset that we will be working with, is called "COVID Summary Data" and can be found following the link \cite{system_covid-19_nodate}.
 
 	This dataset at the current moment has more
-        than 128,000 rows and discribes all the COVID- related cases in Ohio since Jan 2,2020 till the current date (Nov 18 2020). It should be noted that the dataset represents almost raw data and is in the long-table format. In total there are 9 columns in the table, representing the following fields:
+        than 128,000 rows and describes all the COVID- related cases in Ohio since Jan 2,2020 till the current date (Nov 18 2020). It should be noted that the dataset represents almost raw data and is in the long-table format. In total there are 9 columns in the table, representing the following fields:
         \begin{itemize}
         \item County --- County of residence
         \item Age Range
@@ -174,7 +186,7 @@ The dataset is clean. In table \ref{tab:Ohio:missing} number and percentage of t
   \label{tab:Ohio:missing}
 \end{table}
 
-It was mentioned already, that the dataset is in long-table format, so a lot of information can be extracted from it after some work. For example, it is easy to construct time distributions of the total COVID cases/deaths/hospitalizations, determine the mean time spent in hospital, percentage of people died in hospitals and at home, etc. The other example of the dataset, published by COVID tracker, is available through the link \cite{covid19tracking_covid_nodate}. The data in this dataset is already processed, so only the projections of the original data (like the one doscussed earlier) on different variables are available. This makes it easier to extract some information (like time distributions of the deaths cases), but some other information (the role of age and gender, for example) is lost completely. Later in our report we will compre the results extracted from these two data sets.
+It was mentioned already, that the dataset is in long-table format, so a lot of information can be extracted from it after some work. For example, it is easy to construct time distributions of the total COVID cases/deaths/hospitalizations, determine the mean time spent in hospital, percentage of people died in hospitals and at home, etc. The other example of the dataset, published by COVID tracker, is available through the link \cite{covid19tracking_covid_nodate}. The data in this dataset is already processed, so only the projections of the original data (like the one discussed earlier) on different variables are available. This makes it easier to extract some information (like time distributions of the deaths cases), but some other information (the role of age and gender, for example) is lost completely. Later in our report we will compare the results extracted from these two data sets.
 
 The original goal of our project was to study mortality rate due to COVID and compare if with the number of deaths caused by other reasons (natural, cancer, flue, etc). On the Ohio site \cite{statistics_stats_nodate} the yearly statistics for last 4 years is presented with classification by different dearth causes. During our work we extracted this information from the site with the help of python Beautiful Soup package \cite{team_beautiful_nodate}. In table the \ref{tab:mortalityStats} current information from this site is shown. Later we have found that the same information for all states is available also in nice CSV format from the link \cite{cdc_weekly_nodate}. 
 
@@ -237,18 +249,27 @@ The data is now in a preprocessed format and we pass it to the main notebook whe
 
 \subsection{Indiana}
 
+COVID-19 data from Indiana is provided in multiple different datasets. 
+One particular dataset contained all relevant pieces of data in time series format for the analysis we are performing.
+To get the data from Indiana we go to their website and download the data and dictionary files for COVID-19 County-Wide Test, Case, and Death Trends.
+This data is already stored in time series format which saves on aggregation steps.
+There is no missing data as of writing this report and the data was in very good format. After reviewing the data, we selected a subset of columns containing only the data we had decided to include in our standardized format. After selection, the data subset was exported in the standardized format for further processing and analysis.
+
+\subsection{California}
 
 
-
-
-
-\blindenumerate[10]
+COVID-19 data from California is provided in multiple different datasets.
+Unfortunately, no one dataset provided all the data we needed for our analysis so we imported 2 datasets: each contains statewide cases and testing result rates respectively.
+To get the data from California we go to the department of health website and download the data files for COVID-19 Cases and Tests.
+We were unable to locate positive testing data on the health department website so we were forced to use a secondary source from the COVID Tracking Project.
+This data is already stored in time series format which saves on aggregation steps.
+There is no missing data as of writing this report and the data was in very good format. After reviewing the data, we selected a subset of columns containing only the data we had decided to include in our standardized format. After selection, the data subset was exported in the standardized format for further processing and analysis.
 
 \section{ Results \& Discussion }
 
-The main goal of our project is to study the time dependence of death cases caused by COVID virus pandemic and compare it with the available data about deaths caused by other reasons (such as heart diseases, usual influencia, ect). It could be interesting also to make such an analysis for different States or even counties.
+The main goal of our project is to study the time dependence of death cases caused by COVID virus pandemic and compare it with the available data about deaths caused by other reasons (such as heart diseases, usual influenza, etc). It could be interesting also to make such an analysis for different States or even counties.
 
-Let us start with the general yearly distributions. Unfortunately we failed to find data on natural causes statistics by county, so only state-wide analysis was performed.. It turns out that for all considered by our group states on yearly scale the COVID virus was not the main cause of death. In the case of the Ohio state, for example, it is in the 6th place, just between Alzheimer decease and strokes. (see figure \ref{fig:yearly_deaths} for more details). Almost the same situation is observed for other analyzed by our group states. In all cases heart diseases are the most important death causes, while deaths caused by COVID varus are on 4-6 place.
+Let us start with the general yearly distributions. Unfortunately we failed to find data on natural causes statistics by county, so only state-wide analysis was performed.. It turns out that for all considered by our group states on yearly scale the COVID virus was not the main cause of death. In the case of the Ohio state, for example, it is in the 6th place, just between Alzheimer decease and strokes. (see figure \ref{fig:yearly_deaths} for more details). Almost the same situation is observed for other analyzed by our group states. In all cases heart diseases are the most important death causes, while deaths caused by COVID virus are on 4-6 place.
 
 
 \begin{figure}
@@ -291,9 +312,9 @@ The main results of our work are presented in figure 4. For each of the analyzed
 
 It could be interesting to study relative role of the virus decease in comparison with other death causes for different states and different time periods. In the case of the Michigan state, for example (see the left subfigure of figure 4) the first peak of the pandemic was devastating, the corresponding death rate was about twice as much as for heart-disease caused cases. The second peak, on the other hand is much more low. The situation is different for Ohio state: during all time period under consideration COVID-caused death rates are smaller than for two usual death reasons (heart diseases and neoplasms), but the height of the second mare is comparable with the first one. In the case of the Indiana state the situation is somewhere in the middle.
 
-We  can make some assumptions about the reasons of such a difference. As we know, Ohio swas one of the first states that have declared the emergency situation and some of the precaution measures were taken in the stars of the panding. This results in a relatively mild first wave, but the people are too tired from the quarantine, etc, so now we have a serious second mare. In Michigan state the situation is completely different.
+We can make some assumptions about the reasons of such a difference. As we know, Ohio was one of the first states that have declared the emergency situation and some of the precaution measures were taken in the start of the pandemic. This results in a relatively mild first wave, but the people are too tired from the quarantine, etc, so now we have a serious second mare. In Michigan state the situation is completely different.
 
-There is also the other interesting point in the Ohio and Michigan States data. Starting approximately from week 30 in both cases R00-R99 death cause started to gain mon weights (see red line). According to  International Classification of Diseases scheme  \cite{ICD-10} these codes correspond to some abnormal symptoms, not elsewhere classified. We do not have enough medical education to make any definite assumptions, but such a behaviour exactly during the second wave of a new and not completely studied disease looks rather strange, we can even say suspicions.
+There is also the other interesting point in the Ohio and Michigan States data. Starting approximately from week 30 in both cases R00-R99 death cause started to gain mon weights (see red line). According to  International Classification of Diseases scheme  \cite{ICD-10} these codes correspond to some abnormal symptoms, not elsewhere classified. We do not have enough medical education to make any definite assumptions, but such a behavior exactly during the second wave of a new and not completely studied disease looks rather strange, we can even say suspicions.
 
 % You can see a typical photo of our hero on figure \ref{fig}.
 
@@ -308,15 +329,15 @@ There is also the other interesting point in the Ohio and Michigan States data. 
 
 It is well known that the ending year is completely different from the others and has changed our life dramatically. we faced a lot of challenges and one of the most famous was the COVID pandemic. Although it started as a small illness in a faraway country on the other side of the ocean, pretty soon the humanity realizes that in this case the situation is very serious. Unlike rather examples (kind flue, swine flue, etc) the the mortality and the virulence of the new one is very high, it cannot be ignored and some precaution measures should be taken.
 
-Such measures were indeed taken, different for different countries and regions. The results of such a measures also varies from countries. The quarantine was introduced throughout the world, various public gatherings and events were cancelled (Olympics 2020 in Tokyo, for example), etc. Such actions definitely helped to ease the medical side of the problem, but the other, economical issue arrises. Because of the mentioned quarantine a lot of people in the world have lost their jobs, same industries were bankrupted, etc. Moreover, since almost all medical facilities were concentrated on struggle with new decease, less was left for usual, but still important illnesen, such as heart problems, cancer, etc.
+Such measures were indeed taken, different for different countries and regions. The results of such a measures also varies from countries. The quarantine was introduced throughout the world, various public gatherings and events were canceled (Olympics 2020 in Tokyo, for example), etc. Such actions definitely helped to ease the medical side of the problem, but the other, economical issue arises. Because of the mentioned quarantine a lot of people in the world have lost their jobs, same industries were bankrupted, etc. Moreover, since almost all medical facilities were concentrated on struggle with new disease, less was left for usual, but still important illness, such as heart problems, cancer, etc.
 
-Now a natural question drises: was it worth it? We saved a lot of lifes struggling with COVID, but a lot of people died since no time and money was left for them because of this struggle. Some analysis should be made to compare all pros and contras of the current situation. This was the main question of our project.
+Now a natural question arises: was it worth it? We saved a lot of lives struggling with COVID, but a lot of people died since no time and money was left for them because of this struggle. Some analysis should be made to compare all pros and contras of the current situation. This was the main question of our project.
 
-To answer this question we have selected randomly several US States (Ohio, Michigan, Indiana) and searched for statistics of deaths caused by COVID diseases and other, usual reasons. It is clear that huge number of data can be found now concerning CONID, but we were trying to work with the original, raw data, provided by the states themselfs. Afterwards we have compared our results with the available processed data. Pretty good qualitative agreement  was observed, although some difference is also visible.
+To answer this question we have selected randomly several US States (Ohio, Michigan, Indiana) and searched for statistics of deaths caused by COVID diseases and other, usual reasons. It is clear that huge number of data can be found now concerning CONID, but we were trying to work with the original, raw data, provided by the states themselves. Afterwards we have compared our results with the available processed data. Pretty good qualitative agreement  was observed, although some difference is also visible.
 
 It is interesting to mention that type and quality of this "raw" data depends strongly on the state. Ohio, for example, provides the most rawest from the analyzed states. It means that some efforts should be made to extract some useful information (like time distributions, etc), while the other states give such information directly. On the other hand, the amount of information that can be extracted from the raw data is much higher, than the provided one.
 
-The result of our work can be summarized as follows. On the first sight, if only yearly statistics of deaths is analyzed, the COVID disease does not look very dangerous: in Ohio, for example, is takes the 6th place for death causes between strokes and Alzheimer’s decease. If, however, a more detailed analysis is performed and weekly distributions are considered, the situation changed completely. In such distributions two COVID waves can be seen clearly and on the peaks of these waves the COVID caused death rates are comparable and in some states even higher the the deaths rates caused by most dangerous of the usual issued (heart attacks and cancer). So we can defenetly say that taken precaution measures were necessary. The question, however, remains wether we should leave these measures for a long time (for how long?) and  start to return to normal life.
+The result of our work can be summarized as follows. On the first sight, if only yearly statistics of deaths is analyzed, the COVID disease does not look very dangerous: in Ohio, for example, is takes the 6th place for death causes between strokes and Alzheimer’s decease. If, however, a more detailed analysis is performed and weekly distributions are considered, the situation changed completely. In such distributions two COVID waves can be seen clearly and on the peaks of these waves the COVID caused death rates are comparable and in some states even higher the the deaths rates caused by most dangerous of the usual issued (heart attacks and cancer). So we can definitely say that taken precaution measures were necessary. The question, however, remains whether we should leave these measures for a long time (for how long?) and  start to return to normal life.
 
 There is one more point that is worth mentioning. In our analysis we have noticed, that in some of the states during the second COVID wave such death cause as “Abnormal symptoms, not elsewhere classified” (IDC codes \# R00-R99) take one of the leading places in the deaths statistics. In Ohio, for example, for several weeks it was in the third place (with first and second being Cancer (IDC \#C00-C97) And Chronic lower respiratory (IDC \#J40-J47) diseases.
 
