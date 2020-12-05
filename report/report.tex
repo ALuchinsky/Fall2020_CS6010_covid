@@ -79,6 +79,14 @@ A lot of these happened earlier in the year, however our research looks at COVID
 The methodology is similar for each state, however there were some differences including how the raw data, which in some states was already summarized, is setup.
 Some data was cumulative, while others were daily and sometimes in the case of Ohio by batch (multiple entries per day based on when the data arrived).
 
+We pre-process the data for each state since they are different in their raw formats.
+Once pre-processed they are pulled into the main notebook where every preprocessed state goes through the same analysis by comparing against the COVIDTracking Project by the Atlantic to see if the numbers from the state and the agregated numbers by this third party track match \cite{covid19tracking_covid_nodate}.
+We look at the statistics of death, and see how COVID-19 ranks against the other causes of death by state.
+We also look at the population change by state to see if that has an impact when looking at non-COVID-19 causes of death.
+Testing, negative and positive are compared between the states.
+
+To identify where COVID-19 is prevalent within a state we look at the total case and deaths on a GeoJSON plot using a TopoJSON collection to help maps counties to a map of the state \cite{eldersveld_topojson_nodate}.
+
 \subsection{Ohio}
 \label{Ohio}
 
@@ -146,7 +154,6 @@ The dataset is clean. In table \ref{tab:Ohio:missing} number and percentage of t
   \label{tab:Ohio:missing}
 \end{table}
 
-
 It was mentioned already, that the dataset is in long-table format, so a lot of information can be extracted from it after some work. For example, it is easy to construct time distributions of the total COVID cases/deaths/hospitalizations, determine the mean time spent in hospital, percentage of people died in hospitals and at home, etc. The other example of the dataset, published by COVID tracker, is available through the link \cite{covid19tracking_covid_nodate}. The data in this dataset is already processed, so only the projections of the original data (like the one doscussed earlier) on different variables are available. This makes it easier to extract some information (like time distributions of the deaths cases), but some other information (the role of age and gender, for example) is lost completely. Later in our report we will compre the results extracted from these two data sets.
 
 The original goal of our project was to study mortality rate due to COVID and compare if with the number of deaths caused by other reasons (natural, cancer, flue, etc). On the Ohio site \cite{statistics_stats_nodate} the yearly statistics for last 4 years is presented with classification by different dearth causes. During our work we extracted this information from the site with the help of python Beautiful Soup package \cite{team_beautiful_nodate}. In table the \ref{tab:mortalityStats} current information from this site is shown. Later we have found that the same information for all states is available also in nice CSV format from the link \cite{cdc_weekly_nodate}. 
@@ -175,6 +182,37 @@ Septicemia                        &   1729 &   1957 &   1995 &   2066 &   1936 \
 \end{table*}
 
 \subsection{Michigan}
+
+COVID-19 data from Michigan is split into multiple excel files which are timestamped in the name.
+The dataset we are working with is from the State of Michigan \cite{noauthor_coronavirus_nodate}.
+The data is already summarized into daily data.
+
+To get the data from Michigan we go to their website and download the relevant excel files focused on the files for daily counts and daily testing data \cite{noauthor_coronavirus_nodate}.
+Then look at what data is missing, and we found 3 dates are missing and we assume this is due to the cases and deaths that they couldn't attribute to a date. 
+The number of cases or deaths on those 3 entries is minimal that we filter them out.
+\begin{table}
+  \centering
+\begin{tabular}{ll}
+  \toprule
+  Field Name & Missing (\%) \\
+  \midrule
+  COUNTY            &  0.00 \\
+  Date              &  0.02 \\
+  CASE\_STATUS       &  0.00 \\
+  Cases             &  0.00 \\
+  Deaths            &  0.00 \\
+  Cases.Cumulative  &  0.00 \\
+  Deaths.Cumulative &  0.00 \\
+  Updated           &  0.00 \\
+  \bottomrule
+  \end{tabular}
+  \caption{Missing data in Michigan dataset}
+  \label{tab:Michigan:missing}
+\end{table}
+
+Then we set the appropriate data types so it can be processed effectively, and filter out the probable cases so we can focus on confirmed cases.
+
+The data is now in a preprocessed format and we pass it to the main notebook where the comparisons between states and against other causes of deaths happens.
 
 
 \subsection{Indiana}
