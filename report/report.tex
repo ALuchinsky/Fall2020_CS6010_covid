@@ -50,7 +50,7 @@ Goal: Compared standardized state COVID-19 datesets (including time series, coun
 Ohio state has a good habbit in publishing clean, tidy and very informative data. The main dataset that we will be working with, is called "COVID Summary Data" and can be found following the link \cite{system_covid-19_nodate}.
 
 	This dataset at the current moment has more
-        than 128,000 rows and describes all the COVID- related cases in Ohio since Jan 2,2020 till the current date (Nov 18 2020). It should be noted that the dataset represents almost raw data and is in the long-table format. In total there are 9 columns in the table, representing the following fields:
+        than 128,000 rows and discribes all the COVID- related cases in Ohio since Jan 2,2020 till the current date (Nov 18 2020). It should be noted that the dataset represents almost raw data and is in the long-table format. In total there are 9 columns in the table, representing the following fields:
         \begin{itemize}
         \item County --- County of residence
         \item Age Range --- Sex
@@ -152,7 +152,7 @@ Septicemia                        &   1729 &   1957 &   1995 &   2066 &   1936 \
 
 \section{ Results \& Discussion }
 
-The main goal of our project is to study the time dependence of death cases caused by COVID virus pandemic and compare it with the available data about deaths caused by other reasons (such as heart descases, usual influencia, ect). It could be interesting also to make such an analysis for different States or even counties.
+The main goal of our project is to study the time dependence of death cases caused by COVID virus pandemic and compare it with the available data about deaths caused by other reasons (such as heart diseases, usual influencia, ect). It could be interesting also to make such an analysis for different States or even counties.
 
 Let us start with the general yearly distributions. Unfortunately we failed to find data on natural causes statistics by county, so only state-wide analysis was performed.. It turns out that for all considered by our group states on yearly scale the COVID virus was not the main cause of death. In the case of the Ohio state, for example, it is in the 6th place, just between Alzheimer decease and strokes. (see figure \ref{fig:yearly_deaths} for more details). Almost the same situation is observed for other analyzed by our group states. In all cases heart diseases are the most important death causes, while deaths caused by COVID varus are on 4-6 place.
 
@@ -185,7 +185,7 @@ To answer this question it could be interesting to perform a more detailed analy
   \label{fig:RT_comp_CUM}
 \end{figure*}
 
-The main results of our work are presented in figure 4. For each of the analyzed states you can see weekly distributions of death cases caused by various reasons. As you can see, for all States and for almost all time heart deseases give the main contribution to death statistics. For weeks numbers 15-25 and 45-55, however, contribution of the COVID-caused deaths is clearly seen and in some cases (Michigan state, for example) even dominant. It is clear that these two time periods correspond to two waves of the pandemic.
+The main results of our work are presented in figure 4. For each of the analyzed states you can see weekly distributions of death cases caused by various reasons. As you can see, for all States and for almost all time heart diseases give the main contribution to death statistics. For weeks numbers 15-25 and 45-55, however, contribution of the COVID-caused deaths is clearly seen and in some cases (Michigan state, for example) even dominant. It is clear that these two time periods correspond to two waves of the pandemic.
 
 
 \begin{figure*}
@@ -195,11 +195,11 @@ The main results of our work are presented in figure 4. For each of the analyzed
   \label{fig:weekly_deaths}
 \end{figure*}
 
-It could be interesting to study relative role of the virus decease in comparison with other death causes for different states and different time periods. In the case of the Michigan state, for example (see the left subfigure of figure 4) the first peak of the pandemic was devastating, the corresponding death rate was about twice as much as for heart-disease caused cases. The second peak, on the other hand is much more low. The situation is different for Ohio state: during all time period under consideration COVID-caused death rates are smaller than for two usual death reasons (heart descases and neoplasms), but the height of the second mare is comparable with the first one. In the case of the Indiana state the situation is somewhere in the middle.
+It could be interesting to study relative role of the virus decease in comparison with other death causes for different states and different time periods. In the case of the Michigan state, for example (see the left subfigure of figure 4) the first peak of the pandemic was devastating, the corresponding death rate was about twice as much as for heart-disease caused cases. The second peak, on the other hand is much more low. The situation is different for Ohio state: during all time period under consideration COVID-caused death rates are smaller than for two usual death reasons (heart diseases and neoplasms), but the height of the second mare is comparable with the first one. In the case of the Indiana state the situation is somewhere in the middle.
 
 We  can make some assumptions about the reasons of such a difference. As we know, Ohio swas one of the first states that have declared the emergency situation and some of the precaution measures were taken in the stars of the panding. This results in a relatively mild first wave, but the people are too tired from the quarantine, etc, so now we have a serious second mare. In Michigan state the situation is completely different.
 
-There is also the other interesting point in the Ohio and Michigan States data. Starting approximately from week 30 in both cases R00-R99 death cause started to gain mon weights (see zed line). According to  International Classification of Diseases scheme  \cite{cdc_international_nodate} these codes correspond to some abnormal symptoms, not els where classified. We do not have enough medical education to make any definite assumptions, but such a behaviour exactly during the second wave of a new and not completely studied descase looks rather strange, we can even say suspicions.
+There is also the other interesting point in the Ohio and Michigan States data. Starting approximately from week 30 in both cases R00-R99 death cause started to gain mon weights (see zed line). According to  International Classification of Diseases scheme  \cite{ICD-10} these codes correspond to some abnormal symptoms, not elsewhere classified. We do not have enough medical education to make any definite assumptions, but such a behaviour exactly during the second wave of a new and not completely studied disease looks rather strange, we can even say suspicions.
 
 % You can see a typical photo of our hero on figure \ref{fig}.
 
@@ -211,6 +211,20 @@ There is also the other interesting point in the Ohio and Michigan States data. 
 
 
 \section{Conclusion}
+
+It is well known that the ending year is completely different from the others and has changed our life dramatically. we faced a lot of challenges and one of the most famous was the COVID pandemic. Although it started as a small illness in a faraway country on the other side of the ocean, pretty soon the humanity realizes that in this case the situation is very serious. Unlike rather examples (kind flue, swine flue, etc) the the mortality and the virulence of the new one is very high, it cannot be ignored and some precaution measures should be taken.
+
+Such measures were indeed taken, different for different countries and regions. The results of such a measures also varies from countries. The quarantine was introduced throughout the world, various public gatherings and events were cancelled (Olympics 2020 in Tokyo, for example), etc. Such actions definitely helped to ease the medical side of the problem, but the other, economical issue arrises. Because of the mentioned quarantine a lot of people in the world have lost their jobs, same industries were bankrupted, etc. Moreover, since almost all medical facilities were concentrated on struggle with new decease, less was left for usual, but still important illnesen, such as heart problems, cancer, etc.
+
+Now a natural question drises: was it worth it? We saved a lot of lifes struggling with COVID, but a lot of people died since no time and money was left for them because of this struggle. Some analysis should be made to compare all pros and contras of the current situation. This was the main question of our project.
+
+To answer this question we have selected randomly several US States (Ohio, Michigan, Indiana) and searched for statistics of deaths caused by COVID diseases and other, usual reasons. It is clear that huge number of data can be found now concerning CONID, but we were trying to work with the original, raw data, provided by the states themselfs. Afterwards we have compared our results with the available processed data. Pretty good qualitative agreement  was observed, although some difference is also visible.
+
+It is interesting to mention that type and quality of this "raw" data depends strongly on the state. Ohio, for example, provides the most rawest from the analyzed states. It means that some efforts should be made to extract some useful information (like time distributions, etc), while the other states give such information directly. On the other hand, the amount of information that can be extracted from the raw data is much higher, than the provided one.
+
+The result of our work can be summarized as follows. On the first sight, if only yearly statistics of deaths is analyzed, the COVID disease does not look very dangerous: in Ohio, for example, is takes the 6th place for death causes between strokes and Alzheimer’s decease. If, however, a more detailed analysis is performed and weekly distributions are considered, the situation changed completely. In such distributions two COVID waves can be seen clearly and on the peaks of these waves the COVID caused death rates are comparable and in some states even higher the the deaths rates caused by most dangerous of the usual issued (heart attacks and cancer). So we can defenetly say that taken precaution measures were necessary. The question, however, remains wether we should leave these measures for a long time (for how long?) and  start to return to normal life.
+
+There is one more point that is worth mentioning. In our analysis we have noticed, that in some of the states during the second COVID wave such death cause as “Abnormal symptoms, not elsewhere classified” (IDC codes \# R00-R99) take one of the leading places in the deaths statistics. In Ohio, for example, for several weeks it was in the third place (with first and second being Cancer (IDC \#C00-C97) And Chronic lower respiratory (IDC \#J40-J47) diseases.
 
 As it was shown in the article \cite{IEEEexample:article_typical}, the night is dark and full of terrors
 
