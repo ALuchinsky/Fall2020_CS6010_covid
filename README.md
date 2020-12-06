@@ -19,3 +19,12 @@
     - scripts/ : Contains the preprocessing data for each state to be used in `00 - Project.ipynb`
 
 ## Summary
+
+The goal of our project is to analyze the statistics of deaths cases caused by COVID-19 
+We selected several states distributed across the United States (Indiana, California, Michigan and, certainly, Ohio) and downloaded the COVID related data published by Health Departments of these states.
+It turns out that each state store the data in different format, so converted all datasets into one standardized format.
+After such a conversion the comparisons we have compared our results with for different states with each other (all states have some peculiarities) and with data provided by COVID tracker team (good agreement is observed).
+For each of the states we have also compared COVID-related deaths with deaths caused by usual reasons (heart problems, cancer, stroke, etc).
+It turns out that while on the yearly scale the COVID virus does not look very serious, in the weekly distributions we can easily see its seriousness.
+For some states (Michigan, for example) on the peaks COVID takes the 3rd place after heart diseases and cancer.
+It is also interesting to note, that during the last weeks the number of deaths caused by some unknown and unclassified symptoms is increasing.
