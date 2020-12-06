@@ -73,7 +73,36 @@ total_data2.to_csv("../data/processed/by_state/ohio.csv", index=False)
 total_data2
 
 
-# %%
+# %% Yearly statistics for Ohio
+baseUrl = "https://www.cdc.gov/nchs/pressroom/states/ohio/ohio.htm"
+page = urllib.request.urlopen(baseUrl).read()
+soup = BeautifulSoup(page, features="lxml")
+panes = soup.findAll(class_ = "tab-pane")
+
+def parse_pane(pane):
+    table = pane.findAll(class_ = "sos-table table")[1]
+    title = table.find("th").string
+    state, year = title[:2], title[-4:]
+    lines = table.findAll("tr")
+    df_deaths = pd.DataFrame(columns = ["State","Year","Cause","Deaths"])
+    for L in lines[1:]:
+        cause = L.find("a").string
+        deaths = L.findAll("td")[0].string.replace(",","")
+        df_deaths = df_deaths.append({"State":state, "Year":int(year), 
+                                      "Cause":cause, "Deaths":int(deaths)}, ignore_index=True)
+    # drugs
+    table = pane.findAll(class_ = "sos-table table")[2]
+    drug_row = [L for L in table.findAll("tr") if "Drug" in L.find("th").string][0]
+    drugs = drug_row.findAll("td")[0].string.replace(",","")
+    df_deaths = df_deaths.append({"State":state, "Year":int(year), 
+                                  "Cause":"Drugs", "Deaths":int(drugs)}, ignore_index=True)
+    
+    df_deaths["Year"] = df_deaths["Year"].astype(int)
+    df_deaths["Deaths"] = df_deaths["Deaths"].astype(int)
+    return df_deaths
+df_deaths = pd.concat([parse_pane(P) for P in panes]).reset_index().drop( columns="index")
+df_deaths.to_csv("../data/processed/ohio_yearly.csv", index=False)
+
 
 
 
