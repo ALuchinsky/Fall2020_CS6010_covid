@@ -285,21 +285,16 @@ This point is rather interesting and seems to to be very  important. It is clear
 
 
 
-To answer this question it could be interesting to perform a more detailed analysis and study the weekly dependence of the statistics of deaths caused by various deceases. It is clear, that COVID data, collected by our group, gives us a nice opportunity to extract time dependence of death cases with such a granularity (either directly, as for Michigan and Indiana states, or after some obvious transformations, as in the case of raw Ohio data). The same information, actually, in available from COVID-tracker project \cite{covid19tracking_covid_nodate}, but we decided to work with the original data first. In figure \ref{fig:RT_comp_NC} we compare time distributions of the deaths cases extracted from the original data and covid-tracker results. From this figure it is clear that for all states under consideration uncumulative distributions are in good agreement, while in the case of shown in figure \ref{fig:RT_comp_CUM} cumulative results the difference is hardly noticeable.
+To answer this question it could be interesting to perform a more detailed analysis and study the weekly dependence of the statistics of deaths caused by various deceases. It is clear, that COVID data, collected by our group, gives us a nice opportunity to extract time dependence of death cases with such a granularity (either directly, as for Michigan and Indiana states, or after some obvious transformations, as in the case of raw Ohio data). The same information, actually, in available from COVID-tracker project \cite{covid19tracking_covid_nodate}, but we decided to work with the original data first. In the left part of figure \ref{fig:RT_comp} we compare time distributions of the deaths cases extracted from the original data and covid-tracker results. From this figure it is clear that for all states under consideration uncumulative distributions are in good agreement, while in the case of shown on the right of the figure \ref{fig:RT_comp} cumulative results the difference is hardly noticeable.
 
 \begin{figure*}
   \centering
-  \includegraphics[width=0.9\textwidth]{figs/raw_tracker_comp_nc}
-  \caption{Comparison}
-  \label{fig:RT_comp_NC}
+  \includegraphics[width=0.45\textwidth]{figs/raw_tracker_comp_nc}
+  \includegraphics[width=0.45\textwidth]{figs/raw_tracker_comp_cum}
+  \caption{Comparison of deaths statistics provided by State Health departments and COVID tracker team. In left and right panes noncumulative and cumulative distributions are shown}
+  \label{fig:RT_comp}
 \end{figure*}
 
-\begin{figure*}
-  \centering
-  \includegraphics[width=0.9\textwidth]{figs/raw_tracker_comp_cum}
-  \caption{Comparison}
-  \label{fig:RT_comp_CUM}
-\end{figure*}
 
 The main results of our work are presented in figure 4. For each of the analyzed states you can see weekly distributions of death cases caused by various reasons. As you can see, for all States and for almost all time heart diseases give the main contribution to death statistics. For weeks numbers 15-25 and 45-55, however, contribution of the COVID-caused deaths is clearly seen and in some cases (Michigan state, for example) even dominant. It is clear that these two time periods correspond to two waves of the pandemic.
 
