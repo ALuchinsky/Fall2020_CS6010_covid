@@ -62,7 +62,7 @@ ohio = df_tracker[ df_tracker["state"] == "OH"].sort_values("date", ascending = 
 # %%
 total_data2 = ohio[["date", "positive", "negative"]].copy()
 total_data2 = total_data2.rename(columns={"date":"Date","positive":"Positive", "negative":"Negative"})
-total_data2 = pd.merge( total_data2, total_data.groupby(["Date"])["Cases","Deaths"].sum(), left_on="Date", right_on="Date")
+total_data2 = pd.merge( total_data2, total_data.groupby(["Date"])[["Cases","Deaths"]].sum(), left_on="Date", right_on="Date")
 total_data2["State"] = "Ohio"
 total_data2 = total_data2.fillna(0)
 for c in ["Positive", "Negative", "Deaths"]:

@@ -25,7 +25,7 @@ import geopandas as gp
 
 # %%
 michiganCovid19Url = 'https://www.michigan.gov/coronavirus/0,9753,7-406-98163_98173---,00.html'
-michiganCovid19PageSoup = BeautifulSoup(requests.get(michiganCovid19Url).content)
+michiganCovid19PageSoup = BeautifulSoup(requests.get(michiganCovid19Url).content, features="lxml")
 
 # %% [markdown]
 # Make the michigan external data directory to store the data if it isn't there already. 
