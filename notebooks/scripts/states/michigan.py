@@ -42,16 +42,21 @@ if not os.path.exists(dir):
 # %%
 # Delete the existing data as michigan datetime stamps their data
 michiganDataFileNames = glob.glob('../data/external/michiganCovid19Data/*')
-for fileName in michiganDataFileNames:
-    os.remove(fileName)
+
+# Uncomment below for update script when Michigan fixes their data
+
+# for fileName in michiganDataFileNames:
+#     os.remove(fileName)
 
 
 # %%
-for urlHtml in michiganCovid19PageSoup.find(id='comp_115341').find_all('a'):
-    url = 'https://www.michigan.gov/' + urlHtml['href']
-    with open(externalPath + url.split('/')[-1],"wb") as file:
-        response = requests.get(url)
-        file.write(response.content)
+
+if len(michiganDataFileNames) == 0:
+    for urlHtml in michiganCovid19PageSoup.find(id='comp_115341').find_all('a'):
+        url = 'https://www.michigan.gov/' + urlHtml['href']
+        with open(externalPath + url.split('/')[-1],"wb") as file:
+            response = requests.get(url)
+            file.write(response.content)
 
 # %% [markdown]
 # ### Read the day by day Michigan covid 19 data
