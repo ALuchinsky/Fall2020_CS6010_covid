@@ -36,7 +36,11 @@ vvela@bgsu.edu}
 \maketitle
 
 \begin{abstract}
-Goal: Compared standardized state COVID-19 datesets (including time series, county, deaths, cases, tests) with CDC provided deaths statistics for associated states to determine the increased mortality rates and potentially correlate increases in outside morbidity factors(cancer, heart disease, et cetera) as as result of state mandated lockdowns (resulting in delayed medical procedures, isolation exacerbated mental illness, et cetera).
+Identifying the impact of COVID-19 comparing to historical mortality rates is important to determining the hidden costs of the pandemic not immediately attributable to the disease. 
+Determining excess mortality will inform policy-makers in the proper decisions regarding quarantine orders and service shutdowns.
+In this paper, we study the impact of COVID-19 on several US states and how the disease compares with historical causes of death and it's potential contribution to excess deaths when compared to an equivalent historical time frame.
+%In the long term, the outcomes of this study will be used to support research into: (1) comparing COVID-19 disease statistics between US States. (2) comparing COVID-19 death statistics with historical top causes of death (3) determining the impact of COVID-19 on excess mortality rates as a result of state mandated quarantine measures. 
+We provide insights into how our data can support excess death analysis in the future, and reflect on the significant challenges, highlighted by our study, for future research in comparing COVID-19 datasets.
 \end{abstract}
 
 \section{Introduction}
@@ -46,7 +50,7 @@ COVID-19 is a major issue in 2020 with significant impact to global economies, a
 Our research seeks to identify trends between US states for COVID-19, and compare it to other causes of death.
 
 Our contributions are comparisons between states focusing on positive test counts, negative test counts, case counts and death counts. 
-With the ability to replicate on all states of the USA. 
+With a process replicable to all states of the USA. 
 Additionally, providing a comparison between each states COVID-19 deaths against other causes of death.
 This is also replicable across all states of the USA.
 Replication is key in our analysis, and one merely has to pre-process the data into the relevant format and it will run through the analysis.
@@ -66,13 +70,13 @@ Section V focuses on the conclusion of our findings.
 
 \section{Background}
 
-We use data available publicly by the Department of Health organizations from each of the chosen states.
+We utilize data publicly available from Department of Health organizations of each chosen state.
 The Ohio data is from the Ohio Department of Health \cite{system_covid-19_nodate}.
 The Michigan data is from the State of Michigan \cite{noauthor_coronavirus_nodate}.
 The Indiana data is from Indiana State Department of Health (ISDS) \cite{noauthor_indiana_nodate}.
 The California data is from California Department of Public Health \cite{noauthor_tracking_nodate}.
 
-There has been considerable research into COVID-19, however it is still early days since it takes years for papers to come out.
+Considerable research has been done related to COVID-19. It is still early for extensive, deep research since it takes years for such papers to come out.
 Research has been conducted into excess mortality and testing in Ohio \cite{quast_excess_2020}.
 The way the virus spread in Amish country in Ohio has been looked at \cite{ali_covid-19_2020}.
 There was rapid spread of cases in nursing homes, from the beginning of the pandemic through to mid June ``over 82\% of all cases in the state coming from 37\% of nursing homes'' \cite{bowblis_prevalence_2020}.
@@ -81,13 +85,12 @@ There was a decline in stroke victims through the pandemic, which gives us insig
 Research into potential under-reporting of COVID-19 related deaths, as well as indirect deaths from Stay At Home orders has been looked into \cite{woolf_excess_2020}.
 There has been comparative studies into the geographical differences between the states and COVID-19 cases and deaths, specifically looking at estimating incidence rates \cite{cdc_covid-19_response_team_geographic_2020}. 
 Along those lines there have been estimations of excess deaths from March to May \cite{weinberger_estimation_2020}, and March to July \cite{woolf_excess_2020-1}.
-
 There has been a lot of research into COVID-19, comparisons between states, predicting spread and looking at excess deaths. 
 Much of this research occurred earlier in the year. By comparison, our research examines COVID-19 data from March to December giving us larger datasets to draw on and analyze.
 
 \section{Methodology}
 
-The methodology is similar for each state. Differences in individual state-supplied raw data required the use of different techniques in order to transform the data into a standardized format.
+Our methodology is similar for each state. Differences in individual state-supplied raw data requires the use of different techniques in order to transform the data into a standardized format.
 For example, some state data was cumulative, while others were daily and sometimes in the case of Ohio by batch (multiple entries per day based on when the data arrived).
 
 We preprocess the data for each state since they are different in their raw formats.
@@ -111,7 +114,7 @@ The first processed dataset is on the state level, with the following columns:
   \item Deaths - Daily deaths on the specific date within the state
 \end{itemize}
 
-Once preprocessed, they are pulled into the main notebook where every preprocessed state goes through the same analysis by comparing against the COVIDTracking Project by the Atlantic to compare the numbers from the state and the aggregated numbers by this third party for similarity \cite{covid19tracking_covid_nodate}.
+Once preprocessed, the data is imported into our main notebook where each state dataset goes through the same analysis; comparing against the COVIDTracking Project by the Atlantic to compare the numbers from the state and the aggregated numbers by this third party for similarity \cite{covid19tracking_covid_nodate}.
 We look at the statistics of death, and rank COVID-19 fatalities against the other causes of death by state.
 We also examine the population shift by state to see if there is any impact when looking at non-COVID-19 causes of death.
 Testing, negative test results and positive test results are compared between the states.
@@ -121,10 +124,10 @@ For visual identification of COVID-19 prevalence within a state geographically, 
 \subsection{Ohio}
 \label{Ohio}
 
-Ohio state has a good habit in publishing clean, tidy and very informative data. The main dataset that we will be working with, is called "COVID Summary Data" and can be found following the link \cite{system_covid-19_nodate}.
+The Ohio state department of health has followed good data reporting techniques and publishes clean, tidy and very descriptive data. The primary dataset we work with is called "COVID Summary Data" and is found following the link \cite{system_covid-19_nodate}.
 
-	This dataset at the current moment has more
-        than 128,000 rows and describes all the COVID-19 related cases in Ohio since Jan 2,2020 till the current date (Nov 18 2020). It should be noted that the dataset represents almost raw data and is in the long-table format. In total there are 9 columns in the table, representing the following fields:
+	This dataset currently consists of more
+        than 150,000 rows and describes all COVID-19 related cases in Ohio beginning Jan 2,2020 through our cutoff date of Nov 18, 2020. We note this dataset consists almost entirely of raw data and is in the long-table format. There are 9 columns in the table in total, representing the following fields:
         \begin{itemize}
         \item County --- County of residence
         \item Age Range
@@ -162,7 +165,7 @@ Typical extract from the dataset is shown on table \ref{tab:OhioDS}.
 \label{tab:OhioDS}
 \end{table*}
 
-The dataset is clean. In table \ref{tab:Ohio:missing} number and percentage of the missing data in each row is shown. As you can see, we have only absent data in "admission Date" and "Date of Deaths" columns (81\% and 95\% respectively). This is not the problem of the dataset and means only that in the majority of the cases the patient was not hospitalized (and the admission date is left blank) and/or is alive (this correspond to undefined "Date of Deaths" field).
+The dataset is clean. In table \ref{tab:Ohio:missing} number and percentage of the missing data in each row is shown. As you can see, we have only absent data in "Admission Date" and "Date of Deaths" columns (81\% and 95\% respectively). This is not the problem of the dataset and means only that in the majority of the cases the patient was not hospitalized (and the admission date is left blank) and/or is alive (this correspond to undefined "Date of Deaths" field).
 
 \begin{table}
   \centering
