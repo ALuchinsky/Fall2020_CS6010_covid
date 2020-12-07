@@ -103,7 +103,7 @@ The first processed dataset is on the county level, with the following columns:
   \item Deaths - Daily deaths on the specific date within the county
 \end{itemize}
 
-The first processed dataset is on the state level, with the following columns:
+The second processed dataset is on the state level, with the following columns:
 \begin{itemize}
   \item Date - Date of COVID-19 event
   \item State - State it happened in
@@ -114,9 +114,9 @@ The first processed dataset is on the state level, with the following columns:
 \end{itemize}
 
 Once preprocessed, the data is imported into our main notebook where each state dataset goes through the same analysis; comparing against the COVIDTracking Project by the Atlantic to compare the numbers from the state and the aggregated numbers by this third party for similarity \cite{covid19tracking_covid_nodate}.
-We look at the statistics of death, and rank COVID-19 fatalities against the other causes of death by state.
-We also examine the population shift by state to see if there is any impact when looking at non-COVID-19 causes of death.
-Testing, negative test results and positive test results are compared between the states.
+% We look at the statistics of death, and rank COVID-19 fatalities against the other causes of death by state.
+% We also examine the population shift by state to see if there is any impact when looking at non-COVID-19 causes of death.
+% Testing, negative test results and positive test results are compared between the states.
 
 For visual identification of COVID-19 prevalence within a state geographically, we plot total cases and deaths using GeoJSON by leveraging a TopoJSON collection to help maps counties to a map of the state \cite{eldersveld_topojson_nodate}.
 
