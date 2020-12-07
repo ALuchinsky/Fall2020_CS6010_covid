@@ -147,6 +147,9 @@ byStateDF.rename(columns={'DATE':'Date','STATE':'State','COVID_COUNT':'Cases','C
 
 
 # %%
+byStateDF = byStateDF[byStateDF["Date"] > '2020-01-01']
+
+#%%
 byStateDF.to_csv('../data/processed/by_state/IN.csv', index=False)
 
 
